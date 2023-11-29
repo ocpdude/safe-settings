@@ -14,7 +14,9 @@ COPY  index.js /opt/safe-settings/
 COPY  lib /opt/safe-settings/lib
 
 ## Install the app and dependencies
-RUN npm install --omit=dev
+RUN npm install --omit=dev \
+      && npm cache clean --force \
+      && rm -rf /tmp/*
 
 ## This app will listen on port 3000
 EXPOSE 3000
