@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-safe-settings
+  labels:
+    app: safe-settings
+spec:
+  selector:
+    app: safe-settings
+  ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+      nodePort: # Enter a value from 30000-32767
+  type: NodePort

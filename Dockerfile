@@ -4,7 +4,8 @@ ENV NODE_ENV production
 ## Set the Labels
 LABEL version="1.0" \
       description="Probot app which is a modified version of Settings Probot GitHub App" \
-      maintainer="OCPdude <ocpdudes@gmail.com>"
+      maintainer="OCPdude <ocpdudes@gmail.com>" \
+      org.opencontainers.image.source="https://github.com/ocpdude/safe-settings"
 
 ## These files are copied separately to allow updates
 ## to the image to be as small as possible

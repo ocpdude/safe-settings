@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: safe-settings
+  name: safe-settings
+spec:
+  selector:
+    matchLabels:
+      app: safe-settings
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    securityContext:
+      runAsUser: 1000
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+      seccompProfile:
+        type: RuntimeDefault
+    metadata:
+      labels:
+        app: safe-settings
+    spec:
+      serviceAccount: safe-settings-sa
+      serviceAccountName: safe-settings-sa
+      containers:
+      - image: ghcr.io/ocpdude/safe-settings:1129.1
+        name: safe-settings
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 500m
+            memory: 128Mi
+        envFrom:
+        - secretRef: 
+            name: app-env
