@@ -1,8 +1,8 @@
 {
-  "name": "safe-settings",
-  "version": "2.1.1-rc.2",
-  "description": "",
-  "repository": "https://github.com/github/safe-settings.git",
+  "name": "safe-settings-modified",
+  "version": "1.0",
+  "description": "Updated from GitHub Safe-Settings to include version updates and security fixes as of Nov 29, 2023.",
+  "repository": "https://github.com/ocpdude/safe-settings.git",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --inspect",
