@@ -4,7 +4,7 @@ cat <<EOF | oc apply -f -
 kind: Secret
 apiVersion: v1
 metadata:
-    name: test-secret
+    name: app-env
 data:
     APP_ID: $(echo "123456" | base64)
     CRON_SCHEDULE: $(echo "* 0,15,30,45 * * * *" | base64)
