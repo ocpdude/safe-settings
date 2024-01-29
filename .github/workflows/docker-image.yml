@@ -35,6 +35,9 @@ jobs:
     needs: security-checks
     runs-on: ubuntu-latest
     steps:
+    - name: Get the date
+      id: date
+      run: echo "::set-output name=date::$(date +'m%d%')"
     - name: Checkout
       uses: actions/checkout@v4
     - name: Set up QEMU
@@ -53,5 +56,4 @@ jobs:
         push: true
         tags: |
           ${{ env.REGISTRY }}/ocpdude/safe-settings:latest
-        secrets: |
-          GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
+          ${{ env.REGISTRY }}/ocpdude/safe-settings:${{ steps.date.outputs.date }}
