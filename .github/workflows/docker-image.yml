@@ -1,8 +1,8 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
     
   workflow_dispatch:
 
@@ -46,7 +46,7 @@ jobs:
       with:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
-        password: ${{ secrets.MYTOKEN }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
