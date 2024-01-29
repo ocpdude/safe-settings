@@ -37,7 +37,7 @@ jobs:
     steps:
     - name: Get the date
       id: date
-      run: echo "::set-output name=date::$(date +'m%d%')"
+      run: echo "::set-output name=date::$(date +'%m%d')"
     - name: Checkout
       uses: actions/checkout@v4
     - name: Set up QEMU
