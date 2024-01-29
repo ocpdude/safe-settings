@@ -53,5 +53,5 @@ jobs:
         push: true
         tags: |
           ${{ env.REGISTRY }}/ocpdude/safe-settings:latest
-        # secrets: |
-        #   GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
+        secrets: |
+          GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
