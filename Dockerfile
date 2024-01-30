@@ -13,6 +13,8 @@ COPY  package.json /opt/safe-settings/
 COPY  index.js /opt/safe-settings/
 COPY  lib /opt/safe-settings/lib
 
+## Update packages
+RUN apk update
 ## Install the app and dependencies
 RUN npm install --omit=dev \
       && npm cache clean --force \
