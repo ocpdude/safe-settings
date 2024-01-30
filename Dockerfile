@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:21-alpine
+FROM --platform=linux/amd64 node:21.6.0-alpine3.19
 WORKDIR /opt/safe-settings
 ENV NODE_ENV production
 ## Set the Labels
