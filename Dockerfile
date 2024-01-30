@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:21.6.0-alpine3.19
+FROM --platform=linux/amd64 node:current-alpine
 WORKDIR /opt/safe-settings
 ENV NODE_ENV production
 ## Set the Labels
@@ -14,7 +14,7 @@ COPY  index.js /opt/safe-settings/
 COPY  lib /opt/safe-settings/lib
 
 ## Update packages
-RUN apk update
+RUN apk -U upgrade
 ## Install the app and dependencies
 RUN npm install --omit=dev \
       && npm cache clean --force \
